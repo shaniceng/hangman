@@ -130,3 +130,7 @@ h1{
 .notification-container.show{
     transform: translateY(-100px);
 }
+
+.main{
+    justify-content: center;
+}
