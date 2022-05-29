@@ -73,7 +73,7 @@ function updateWrongLetterE1(){
 
     //Check if lost
     if(wrongLetters.length === figureParts.length){
-        finalMessage.innerText = 'Unfortunately you lost. 😕';
+        finalMessage.innerText = 'Unfortunately you lost. 😕' + '\nThe word was ' + selectedWord;
         popup.style.display = 'flex';
     }
 }
