@@ -41,3 +41,20 @@ start.addEventListener('mouseout', (e) => {
   start_button.style.color = og_color; 
   
 });
+
+let level = 0;
+
+function changeDifficulty(difficulty = 0) {
+  level = difficulty;
+  randomWords = [];
+  
+  if (level == 0){
+    sessionStorage.setItem('difficulty', 'medium');
+  } else if (level == 1) {
+    sessionStorage.setItem('difficulty', 'easy');
+  } else if (level == 2) {
+    sessionStorage.setItem('difficulty', 'medium');
+  } else if (level == 3) {
+    sessionStorage.setItem('difficulty', 'hard');
+  }
+}
