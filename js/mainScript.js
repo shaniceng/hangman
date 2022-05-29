@@ -7,13 +7,26 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts= document.querySelectorAll(".figure-part");
 
-const words = ['application', 'programming', 'interface', 'wizard', 'bacon', 'teacher', 'automobile',
-    'apple', 'banana', 'orange', 'pear', 'papaya', 'kiwi', 'lemon', 'mandarine', 'peach', 'raspberry', 'mango', 'fig', 'plum'];
-
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+// Arrays of words for each difficulty
+const wordseasy = ['bacon', 'apple', 'pear', 'kiwi', 'peach', 'mango', 'fig', 'plum'];
+const wordsmedium = ['orange', 'banana', 'papaya', 'longan', 'pottery', 'cycling', 'laptop', 'wizard'];
+const wordshard = ['application', 'programming', 'interface', 'automobile', 'raspberry', 'mandarine', 'development'];
 
 const correctLetters = [];
 const wrongLetters = [];
+
+// Get difficulty from previous webpage. If none selected, difficulty is medium
+var difficulty = sessionStorage.getItem('difficulty');
+var selectedWord;
+
+// Assigning words according to difficulty level
+if (difficulty == 'easy'){
+    selectedWord = wordseasy[Math.floor(Math.random() * wordseasy.length)];
+} else if (difficulty == 'medium') {
+    selectedWord = wordsmedium[Math.floor(Math.random() * wordsmedium.length)];
+} else if (difficulty == 'hard') {
+    selectedWord = wordshard[Math.floor(Math.random() * wordshard.length)];
+}
 
 //Show hidden word
 function displayWord(){
@@ -104,8 +117,14 @@ playAgainBtn.addEventListener('click', () => {
     //Empty arrays
     correctLetters.splice(0);
     wrongLetters.splice(0);
-
-    selectedWord = words[Math.floor(Math.random() * words.length)];
+    
+    if (difficulty == 'easy'){
+        selectedWord = wordseasy[Math.floor(Math.random() * wordseasy.length)];
+    } else if (difficulty == 'medium') {
+        selectedWord = wordsmedium[Math.floor(Math.random() * wordsmedium.length)];
+    } else if (difficulty == 'hard') {
+        selectedWord = wordshard[Math.floor(Math.random() * wordshard.length)];
+    }
 
     displayWord();
 
