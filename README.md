@@ -1,4 +1,4 @@
-# shaniceng.github.io
+# hangman
 A hangman game using HTML, CSS and Javascript
 
 How to play:
